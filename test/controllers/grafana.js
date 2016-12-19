@@ -60,7 +60,7 @@ describe('controllers/grafana', () => {
         });
     });
 
-    it('should handle lowecase statuses', () => {
+    it('should handle lowercase statuses', () => {
       return request(app())
         .post('/grafana/foo')
         .send({
