@@ -1,0 +1,40 @@
+{
+  "name": "grafana-statuspage",
+  "version": "1.0.0",
+  "description": "Grafana-StatusPage.io connector",
+  "main": "server.js",
+  "scripts": {
+    "autotest": "NODE_ENV=test node_modules/.bin/supervisor -q -n exit -x node_modules/.bin/_mocha --",
+    "coverage": "NODE_ENV=test node_modules/.bin/istanbul cover node_modules/.bin/_mocha",
+    "lint": "NODE_ENV=test node_modules/.bin/eslint lib test",
+    "test": "NODE_ENV=test node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getconversio/grafana-statuspage.git"
+  },
+  "author": "Stefano Sala <stefano@conversio.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/getconversio/grafana-statuspage/issues"
+  },
+  "homepage": "https://github.com/getconversio/grafana-statuspage#readme",
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb-base": "^11.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "nock": "^9.0.2",
+    "sinon": "^1.17.6",
+    "supertest": "^2.0.1",
+    "supertest-as-promised": "^4.0.2",
+    "supervisor": "^0.12.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "isomorphic-fetch": "^2.2.1",
+    "winston": "^2.3.0"
+  }
+}
