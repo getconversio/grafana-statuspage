@@ -1,0 +1,23 @@
+{
+  "name": "grafana-statuspage",
+  "description": "Grafana-StatusPage connector",
+  "repository": "https://github.com/getconversio/grafana-statuspage.git",
+  "scripts": {},
+  "env": {
+    "STATUSPAGE_API_KEY": {
+      "required": true
+    },
+    "STATUSPAGE_PAGE_ID": {
+      "required": true
+    }
+  },
+  "formation": {},
+  "addons": [
+    "logentries"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
