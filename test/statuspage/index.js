@@ -13,7 +13,9 @@ describe('statuspage/index', () => {
     beforeEach(() => {
       self.updateCall = nock('https://api.statuspage.io', { reqheaders: { authorization: 'OAuth fooApiKey' } })
         .patch('/v1/pages/fooPageId/components/ftgks51sfs2d.json', {
-          status: 'degraded_performance'
+          component: {
+            status: 'degraded_performance'
+          }
         })
         .reply(200, {
           created_at: '2013-03-05T20:50:42Z',
