@@ -60,6 +60,19 @@ describe('controllers/grafana', () => {
         });
     });
 
+    it('should handle lowecase statuses', () => {
+      return request(app())
+        .post('/grafana/foo')
+        .send({
+          state: 'alerting'
+        })
+        .expect(200)
+        .then(() => {
+          sinon.assert.calledOnce(self.postUpdateStub);
+          sinon.assert.calledWith(self.postUpdateStub, 'foo', 'degraded_performance');
+        });
+    });
+
     context('given an error from postUpdate', () => {
       beforeEach(() => {
         self.postUpdateStub.returns(Promise.reject(new Error('401 Not authorized')));
