@@ -73,6 +73,19 @@ describe('controllers/grafana', () => {
         });
     });
 
+    it('should accept a custom status', () => {
+      return request(app())
+        .post('/grafana/foo/partial_outage')
+        .send({
+          state: 'alerting'
+        })
+        .expect(200)
+        .then(() => {
+          sinon.assert.calledOnce(self.postUpdateStub);
+          sinon.assert.calledWith(self.postUpdateStub, 'foo', 'partial_outage');
+        });
+    });
+
     context('given an error from postUpdate', () => {
       beforeEach(() => {
         self.postUpdateStub.returns(Promise.reject(new Error('401 Not authorized')));
