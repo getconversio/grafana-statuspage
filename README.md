@@ -9,6 +9,12 @@ Use the above button to create a new Heroku App to connect Grafana and StatusPag
 
 Use latest version of Grafana that enables the Alerting feature, then create a new Webhook notification. The url should follow this structure:
 
-    https://yourapp.herokuapp.com/grafana/componentId
+    https://yourapp.herokuapp.com/grafana/{componentId}
 
-You'll find `componentId` in your StatusPage.io component url.
+Where `componentId` is the id in your StatusPage.io component url.
+
+By default on `alerting` webhook from Grafana, it will post a `degraded_performance` to StatusPage. You can override the status in the url:
+
+    https://yourapp.herokuapp.com/grafana/{componentId}/{status}
+
+    e.g. https://yourapp.herokuapp.com/grafana/dja8902jx/partial_outage
